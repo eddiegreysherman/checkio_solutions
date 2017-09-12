@@ -26,20 +26,17 @@ def is_family(tree):
         if father in fam[father]:
             return False  # cannot be your own father!
 
-    for father in fathers:
         for i in range(len(fam[father])):
             if fam[father][i] in fathers:
                 if fam[fam[father][i]][0] == father:
                     return False  # you cannot be your fathers father.
-
-    for father in fathers:
+                
         if father != source:
             if father in fam[source]:
                 for i in range(len(fam[father])):
                     if fam[father][i] in fam[source]:
                         return False  # cannot be a father to your brother
 
-    for father in fathers:
         if father not in children and father != source:
             return False  # No strangers in the family...
 
