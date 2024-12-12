@@ -9,6 +9,10 @@ def between_markers(text: str, begin: str, end: str) -> str:
         return(text.split(end)[0])
     
     elif begin and end in text:
+        # figure out if end comes before begin in the text
+        if text.index(end) < text.index(begin):
+            return ""
+        
         return(text.split(begin)[1].split(end)[0])
     
     elif begin and end not in text:
